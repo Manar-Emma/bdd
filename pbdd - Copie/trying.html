@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Navigation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .logonav {
+            display: flex;
+            align-items: center;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo img {
+            width: 100px; /* Adjust the width as needed */
+        }
+
+        nav {
+            margin-top: 60px; /* Adjust the margin to accommodate the fixed navigation bar */
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            background-color: #333;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav li {
+            margin-right: 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            position: relative;
+        }
+
+        /* Hidden divs for each category */
+        .category-div {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            width: 200px;
+            z-index: 1;
+        }
+
+        .category-div a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            margin-bottom: 5px;
+        }
+
+        /* Show the hidden div on hover */
+        nav a:hover + .category-div,
+        .category-div:hover {
+            display: block;
+        }
+
+        /* Styles for the search button */
+        #searchButton {
+            cursor: pointer;
+        }
+
+        #searchButton img {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Styles for the search container */
+        #searchContainer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.7);
+            transition: 0.5s;
+            z-index: 1;
+        }
+
+        #searchContent {
+            padding: 20px;
+            width: 30%;
+            height: 100%;
+            box-sizing: border-box;
+            background-color: #fff;
+            color: #333;
+            transition: 0.5s;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="logonav">
+        <div id="searchContainer">
+            <div id="searchContent">
+                <h2>Search</h2>
+                <!-- Your search form or content goes here -->
+                <form>
+                    <label for="searchInput">Search:</label>
+                    <input type="text" id="searchInput" name="searchInput">
+                    <button type="submit">Submit</button>
+                </form>
+                <button onclick="closeSearch()">Close</button>
+            </div>
+        </div>
+
+        <div id="searchButton" onclick="openSearch()">
+            <div class="search"><img src="search.png" alt="search"></div>
+        </div>
+    
+        <div class="logo"><img src="logo.png"></div>
+
+        <div class="fav">
+            <div class="heartw"><img src="heartw.png" alt="heartw"></div>
+            <div class="account"><img src="Account.png" alt="account"></div>
+            <div class="panier"><img src="Shopping.png" alt="panier"></div>
+        </div>
+    </div>
+
+    <nav>
+      <ul>
+          <li>
+              <a>Home</a>
+          </li>
+          <li>
+              <a href="#">Women</a>
+              <div class="category-div">
+                  <!-- Content for Women category -->
+                  <a href="#">Dresses</a>
+                  <a href="#">pants</a>
+                  <a href="#">skirt</a>
+                  <a href="#">shirts</a>
+                  <a href="#">jackets</a>
+                  <a href="#">Accessories</a>
+                  <a href="#">Shoes</a>
+              </div>
+          </li>
+          <li>
+              <a href="#">Men</a>
+              <div class="category-div">
+                  <!-- Content for Men category -->
+                  <a href="#">Men's Clothes</a>
+                  <a href="#">Accessories</a>
+                  <a href="#">Shoes</a>
+              </div>
+          </li>
+          <li>
+              <a href="#">Kids</a>
+              <div class="category-div">
+                  <!-- Content for Kids category -->
+                  <a href="#">Kids' Clothes</a>
+                  <a href="#">Shoes</a>
+                  <a href="#">Toys</a>
+              </div>
+          </li>
+          <li>
+              <a href="#">House</a>
+              <div class="category-div">
+                  <!-- Content for House category -->
+                  <a href="#">Home Decor</a>
+                  <a href="#">Kitchenware</a>
+                  <a href="#">Furniture</a>
+              </div>
+          </li>
+          <li>
+              <a href="#">Beauty</a>
+              <div class="category-div">
+                  <!-- Content for Beauty category -->
+                  <a href="#">Skincare</a>
+                  <a href="#">Makeup</a>
+                  <a href="#">Haircare</a>
+              </div>
+          </li>
+          <li>
+              <a>About Us</a>
+          </li>
+      </ul>
+  </nav>
+  <div class="mode">
+        
+    <div class="slide-content">
+        <div class="text-overlay">
+            <h3>MODE</h3>
+            <h3>&</h3>
+            <h3>MORE</h3>
+        </div>
+        <img class="imagy fade" id="myImage1" src="mode.png" style="width:100%" >
+        <img class="imagy fade" id="myImage2" src="man.png" style="width:100%" >
+        <img class="imagy fade" id="myImage3" src="watchh.png" style="width:100%" >
+        <img class="imagy fade" id="myImage3" src="accessories.png" style="width:100%" >
+
+
+        <div class="contact-button">
+            <button ><a onclick="scrollToSection('contactsection')">Contact Us</a> </button>
+        </div>
+    </div>
+
+</div>
+
+<div class="dots" style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+
+</div>
+<div class="mode">
+  /*
+  function changeimg() {
+    // Find the parent card element
+    var nav = document.getElementById('searchs');
+
+
+      
+          // Check the current source of the heart image and change it accordingly
+          if (nav.src.endsWith("search.png")) {
+            nav.src = "search1.png";
+
+          } else {
+            nav.src = "search.png";
+          }
+        }
+*/
+  <div class="slide-content">
+      <div class="text-overlay">
+          <h3>MODE</h3>
+          <h3>&</h3>
+          <h3>MORE</h3>
+      </div>
+      <img class="imagy fade" id="myImage1" src="mode.png" style="width:100%" >
+      <img class="imagy fade" id="myImage2" src="man.png" style="width:100%" >
+      <img class="imagy fade" id="myImage3" src="watchh.png" style="width:100%" >
+      <img class="imagy fade" id="myImage3" src="accessories.png" style="width:100%" >
+
+
+      <div class="contact-button">
+          <button ><a onclick="scrollToSection('contactsection')">Contact Us</a> </button>
+      </div>
+  </div>
+
+</div>
+
+<div class="dots" style="text-align:center">
+<span class="dot"></span> 
+<span class="dot"></span> 
+<span class="dot"></span> 
+<span class="dot"></span> 
+
+</div>
+<div class="mode">
+        
+  <div class="slide-content">
+      <div class="text-overlay">
+          <h3>MODE</h3>
+          <h3>&</h3>
+          <h3>MORE</h3>
+      </div>
+      <img class="imagy fade" id="myImage1" src="mode.png" style="width:100%" >
+      <img class="imagy fade" id="myImage2" src="man.png" style="width:100%" >
+      <img class="imagy fade" id="myImage3" src="watchh.png" style="width:100%" >
+      <img class="imagy fade" id="myImage3" src="accessories.png" style="width:100%" >
+
+
+      <div class="contact-button">
+          <button ><a onclick="scrollToSection('contactsection')">Contact Us</a> </button>
+      </div>
+  </div>
+
+</div>
+
+<div class="dots" style="text-align:center">
+<span class="dot"></span> 
+<span class="dot"></span> 
+<span class="dot"></span> 
+<span class="dot"></span> 
+
+</div>
+<div class="mode">
+        
+  <div class="slide-content">
+      <div class="text-overlay">
+          <h3>MODE</h3>
+          <h3>&</h3>
+          <h3>MORE</h3>
+      </div>
+      <img class="imagy fade" id="myImage1" src="mode.png" style="width:100%" >
+      <img class="imagy fade" id="myImage2" src="man.png" style="width:100%" >
+      <img class="imagy fade" id="myImage3" src="watchh.png" style="width:100%" >
+      <img class="imagy fade" id="myImage3" src="accessories.png" style="width:100%" >
+
+
+      <div class="contact-button">
+          <button ><a onclick="scrollToSection('contactsection')">Contact Us</a> </button>
+      </div>
+  </div>
+
+</div>
+
+<div class="dots" style="text-align:center">
+<span class="dot"></span> 
+<span class="dot"></span> 
+<span class="dot"></span> 
+<span class="dot"></span> 
+
+</div>
+<div class="mode">
+        
+  <div class="slide-content">
+      <div class="text-overlay">
+          <h3>MODE</h3>
+          <h3>&</h3>
+          <h3>MORE</h3>
+      </div>
+      <img class="imagy fade" id="myImage1" src="mode.png" style="width:100%" >
+      <img class="imagy fade" id="myImage2" src="man.png" style="width:100%" >
+      <img class="imagy fade" id="myImage3" src="watchh.png" style="width:100%" >
+      <img class="imagy fade" id="myImage3" src="accessories.png" style="width:100%" >
+
+
+      <div class="contact-button">
+          <button ><a onclick="scrollToSection('contactsection')">Contact Us</a> </button>
+      </div>
+  </div>
+
+</div>
+
+<div class="dots" style="text-align:center">
+<span class="dot"></span> 
+<span class="dot"></span> 
+<span class="dot"></span> 
+<span class="dot"></span> 
+
+</div>
+<div class="mode">
+        
+  <div class="slide-content">
+      <div class="text-overlay">
+          <h3>MODE</h3>
+          <h3>&</h3>
+          <h3>MORE</h3>
+      </div>
+      <img class="imagy fade" id="myImage1" src="mode.png" style="width:100%" >
+      <img class="imagy fade" id="myImage2" src="man.png" style="width:100%" >
+      <img class="imagy fade" id="myImage3" src="watchh.png" style="width:100%" >
+      <img class="imagy fade" id="myImage3" src="accessories.png" style="width:100%" >
+
+
+      <div class="contact-button">
+          <button ><a onclick="scrollToSection('contactsection')">Contact Us</a> </button>
+      </div>
+  </div>
+
+</div>
+
+<div class="dots" style="text-align:center">
+<span class="dot"></span> 
+<span class="dot"></span> 
+<span class="dot"></span> 
+<span class="dot"></span> 
+
+</div>
+<div class="mode">
+        
+  <div class="slide-content">
+      <div class="text-overlay">
+          <h3>MODE</h3>
+          <h3>&</h3>
+          <h3>MORE</h3>
+      </div>
+      <img class="imagy fade" id="myImage1" src="mode.png" style="width:100%" >
+      <img class="imagy fade" id="myImage2" src="man.png" style="width:100%" >
+      <img class="imagy fade" id="myImage3" src="watchh.png" style="width:100%" >
+      <img class="imagy fade" id="myImage3" src="accessories.png" style="width:100%" >
+
+
+      <div class="contact-button">
+          <button ><a onclick="scrollToSection('contactsection')">Contact Us</a> </button>
+      </div>
+  </div>
+
+</div>
+
+<div class="dots" style="text-align:center">
+<span class="dot"></span> 
+<span class="dot"></span> 
+<span class="dot"></span> 
+<span class="dot"></span> 
+
+</div>
+
+    <script>
+        function openSearch() {
+            document.getElementById("searchContainer").style.width = "100%";
+            document.getElementById("searchContent").style.width = "30%";
+        }
+
+        function closeSearch() {
+            document.getElementById("searchContainer").style.width = "0";
+            document.getElementById("searchContent").style.width = "0";
+        }
+    </script>
+
+</body>
+</html>

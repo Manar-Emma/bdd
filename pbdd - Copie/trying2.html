@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+ /* Adjust the height to make the scrollbar visible */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .scroll-indicator {
+            width: 60px;
+            height: 60px;
+
+            transform: translateX(-50%);
+
+            opacity: 0.7;
+            animation: bounce 1s infinite alternate;
+        }
+        .scroll-indicator img{
+            width: 60px;
+            height: 60px;
+
+        }
+        @keyframes bounce {
+            0% {
+                transform: translateX(-50%) translateY(0);
+            }
+            100% {
+                transform: translateX(-50%) translateY(10px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-indicator">
+        <img src="flesh.png">
+    </div>
+</body>
+</html>

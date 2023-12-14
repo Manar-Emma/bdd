@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Khula:wght@300;400;600&display=swap">
+
+    <title>Home</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Hahmlet&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800&display=swap');
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        background-color: #EAE3CF;
+
+    }
+    header{
+        background-color: #361A1A;
+            padding: 10px;
+            text-align: center;
+        
+    }
+    .logonav{
+        background-color: #361A1A;
+        border-bottom: solid 1px #FFFFFF;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .fav img{
+        width: 32px;
+        height: 32px;
+    }
+    .fav .shopping img{
+        width: 29px;
+        height: 29px;
+    }
+    .search img{
+        width: 32px;
+        height: 32px;
+    }
+    .fav{
+        display: flex;
+        gap: 15%;
+        margin-right: 3%;
+    }
+    .logo img{
+        width: 135px;
+        height: 85px;
+    }
+    nav{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 0.7%;
+
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+        background-color: #361A1A;
+    }
+
+    nav ul{
+        display: flex;
+        color: white;
+        list-style: none;
+        gap: 40px;
+        padding: 1%;
+
+    }
+    nav ul li{
+        padding: 5px;
+        padding-left: 7px;
+        padding-right: 7px;
+    }
+
+    a {
+        text-decoration: none;
+        color: #FFFFFF;
+        margin-left: 10px;
+        margin-right: 10px;
+        font-family: 'Jacques Francois';
+        font-size: larger;
+        cursor: pointer;
+
+    }
+            /* Hidden divs for each category */
+            .category-div {
+            display: none;
+            position: absolute;
+            left: 0;
+            background-color: #EAE3CF;
+            color: #361A1A;
+            padding: 20px 0 20px 0 ;
+            width: 100%;
+            z-index: 1;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            
+        }
+        .category-div a {
+            color: #361A1A;
+        }
+
+        /* Show the hidden div on hover */
+        nav a:hover + .category-div , .category-div:hover {
+            display: flex;
+        }
+        .category-div a:hover{
+            font-size: 22px;
+        }
+
+
+
+
+
+    .mode{
+        height: 485px;
+        position: relative;
+
+        width: 100%;
+
+    }
+
+
+ 
+    .heart{
+        display: flex;
+        align-items: center;
+        justify-content: end;
+    }
+    .heart img{
+        width: 40px;
+        height: 40px;
+
+    }
+    .newest{
+        display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+    }
+    .picnom{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .pris{
+        display: flex;
+        padding: 5px;
+        gap: 1px;
+
+    }
+    .card{
+
+        background-color: #F5F5F5;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow properties */
+        border-radius: 11px;
+        padding: 10px;
+    }
+    .card:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+    .cards {
+        display: flex; /* Use flexbox to align cards */
+        gap: 40px; /* Adjust the gap between cards as needed */
+        padding-left: 50px;
+        padding-top: 10px;
+        padding-bottom: 20px;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        width: 95%; /* Enable vertical scrolling when cards overflow */
+        -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none; 
+
+        }
+    h1{
+        font-family: 'hahmlet', serif;
+        text-transform: uppercase;
+        font-size: 30px;
+        margin: 10px;
+        margin-top: 45px;
+        margin-bottom: 45px;
+        color: #361A1A;
+    }
+
+    .newest button{
+        padding: 8px;
+        margin: 35px;
+        border: #361A1A solid 1px;
+        border-radius: 5px;
+        width: 11%;
+        font-family: 'hahmlet', serif;
+        background-color: transparent;
+        transition: background-size 0.3s ease, background-image 0.3s ease;
+        background-size: 0% 100%;
+    background-position: 0 0;
+  background-repeat: no-repeat;
+    }
+    .newest button a {
+        color: #361A1A;
+        text-decoration: none;
+    }
+
+    .newest button:hover{
+        background-image: linear-gradient(to right, #361A1A, #361A1A);
+        background-size: 100% 100%;
+        
+    }
+    .newest button:hover a{
+        color: #EAE3CF;
+        text-decoration: none;
+
+        
+    }
+    .prix {
+        display: inline-block;
+    }
+    .makeup{
+        position: relative;
+    }
+    .objects{
+        position: absolute;
+        bottom: -42%;
+        right: 1%;
+    }
+    .here{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        background-image: url(here.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 400px;
+        margin-bottom: 110px;
+     }
+    .profil img{
+        width: 128px;
+        height: 128px;
+    }
+     .indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+
+.indicator {
+  width: 15px;
+  height: 15px;
+  background-color: rgba(25, 24, 37, 0.05)
+;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.indicator.active {
+  background-color:#361A1A;
+}
+
+.ray p{
+    font-family: 'Roboto';
+    font-size: 19px;
+    font-weight: 300;
+    line-height: 37px;
+    letter-spacing: 0em;
+    text-align: center;
+    color:rgba(25, 24, 37, 0.75);
+
+}
+.requests{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        height: 100%;
+
+
+     }
+     .request{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        justify-content: center;
+        align-items: center;
+        width: 800px;
+
+     }
+     .writing2{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+     }
+     .writing2 h1{
+        text-align: center;
+
+     }
+     .request .writing{
+        align-items: center;
+     }
+
+     .name{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+     }
+
+     .name p{
+        font-size: 28px;
+        font-weight: 500;
+        color: rgba(25, 24, 37, 0.75);
+
+     }
+     .prev , .next , .prevy , .nexty{
+    background-color: transparent;
+    border: #361A1A solid 1px;
+    border-radius: 50%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 40px ;
+    color:#361A1A;
+    }
+
+    .prev:hover , .next:hover , .prevy:hover , .nexty:hover{
+        background-color:  #361A1A;
+        color: #EAE3CF;
+        
+    }
+
+     .prevy:disabled , .nexty:disabled , .prev:disabled , .next:disabled{
+        border: 1px solid transparent;
+        background-color: transparent;
+        color: transparent;        
+     }
+    
+
+    footer{
+        background-color: #361A1A;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10%;
+
+    }
+    footer .infofoot{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 5%;
+        width: 90%;
+        padding-top: 2%;
+        padding-bottom: 3%;
+    }
+    footer .logofoot{
+        width: 95%;
+        justify-content: start;
+        align-items: center;
+        margin-top: 20px;
+    }
+    footer ul li{
+        list-style: none;
+    }
+    footer .service {
+        font-size: 20px;
+        color: #EAE3CF;
+        font-family: 'Khula', sans-serif;
+        }
+    footer .copy{
+        font-size: 20px;
+        color: #EAE3CF;
+        font-family: 'Khula', sans-serif;
+        margin-bottom: 10px;
+    }
+    .contact {
+            padding: 20px;
+
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .contact form{
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            width: 40%;
+            padding: 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        input, textarea {
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: none;
+            border-bottom: 1px solid #361A1A;
+            width: 60%;
+
+            background-color: transparent;
+
+        }
+        textarea {
+            resize: none; /* This prevents the user from resizing the textarea */
+        }
+
+        .contact button {
+            background-color: transparent;
+            color: #fff;
+            padding: 10px 15px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .why1{
+            display: flex;
+            flex-direction: column;
+            height: 400px;
+            width: 250px;
+            background-image: url(bg.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            gap: 20px;
+            border-radius:  200px 200px 0 0;
+            padding: 10px;
+
+            align-items: center;
+        }
+        .why1:nth-child(2) {
+            position: relative;
+            top: -60px; /* Adjust the value for the desired overlap effect */
+        }
+
+        .why1:nth-child(3) {
+            position: relative;
+            top: -120px; /* Adjust the value for the desired overlap effect */
+        }
+        .whyCards {
+            width: 90%;
+            padding: 3%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+
+        }
+        .whyTitle , .whyTitle-2{
+            margin-bottom: 0px;
+            margin-left: 10%;
+            font-size: 38px;
+        }
+        
+        .why{
+            display: flex;
+            flex-direction: column;
+            margin-top: 100px;
+            position: relative;
+            overflow-x: clip;
+        }
+        .why1 img{
+            width: inherit;
+            height: inherit;
+            margin-top: 20px;
+
+            
+
+        }
+        .why1 .imgPr{
+            width: 133px;
+            height: 131px;
+
+        }
+        .why1 p{
+            font-size: large;
+            font-family: "Aref Ruqaa" ;
+            padding-left: 18px;
+        }
+
+        .why .object{
+            position: absolute;
+            right: -10%;
+            bottom: -30%;
+            z-index: -1;
+            opacity: 30%;
+        }
+        .scroll-indicator {
+            font-size: 28px;
+
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            opacity: 0.7;
+            animation: bounce 1s infinite alternate;
+        }
+
+        @keyframes bounce {
+            0% {
+                transform: translateX(-50%) translateY(0);
+            }
+            100% {
+                transform: translateX(-50%) translateY(10px);
+            }
+        }
+
+
+        /*slides*/
+        .mySlides {
+      display: none;
+    }
+
+    img {
+      vertical-align: middle;
+    }
+
+
+
+
+
+
+    .contact-button {
+      position: absolute;
+      top: 50%;
+      right: 10%;
+      transform: translateY(-50%);
+    }
+
+    .contact-button button {
+      padding: 10px;
+      font-size: 16px;
+    }
+    .slide-content {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            height: 100%;
+
+            align-items: center;
+        }
+        .slide-content img{
+          height: inherit;
+        }
+        .text-overlay {
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 80px;
+            font-weight: bold;
+        }
+
+
+    .contact-button button a {
+        color: #361A1A;
+        text-decoration: none;
+    }
+
+    .contact-button button:hover{
+        background-image: linear-gradient(to right, #361A1A, #361A1A);
+        background-size: 100% 100%;
+        
+    }
+    .contact-button button:hover a{
+        color: #EAE3CF;
+        text-decoration: none;
+
+        
+    }
+
+        .contact-button {
+            position: absolute;
+            top: 70%;
+            right: 19%;
+            transform: translateY(-50%);
+            width: 150px;
+
+        }
+        
+
+        .contact-button button {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            font-family: "hahmlet" , serif;
+            background-color: #EAE3CF;
+            border: none;
+            color: #361A1A;
+            width: 100%;
+            background-size: 0% 100%;
+            transition: background-size 0.3s ease, background-image 0.3s ease;
+            background-position: 0 0;
+  background-repeat: no-repeat;
+
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 0.2s;
+        }
+
+        @keyframes fade {
+            0% { opacity: 1; transform: translateX(0); }
+            25% { opacity: 0; transform: translateX(-100%); }
+            50% { opacity: 0; transform: translateX(100%); }
+            75%, 100% { opacity: 1; transform: translateX(0); }
+        }
+        .dots{
+                  position: absolute;
+      bottom: 5%;
+      left: 50%;
+        }
+        .dot {
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #1a1111;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+
+    }
+    .active {
+      background-color: #EAE3CF;
+    }
+    #searchContainer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.7);
+            transition: 0.5s;
+            z-index: 111;
+        }
+
+        #searchContent {
+            padding: 20px;
+            width: 30%;
+            height: 100%;
+            box-sizing: border-box;
+            background-color: #fff;
+            color: transparent;
+            transition: 0.5s;
+            position: relative;
+        }
+        #searchContent .search{
+            background-color: #EAE3CF;
+            border-color: #361A1A;
+            border: #361A1A solid 1px;
+            border-radius: 5px;
+            width: fit-content;
+            padding: 5px;
+        }
+        #searchContent .close{
+            background-color: #361A1A;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            color: #F5F5F5;
+            padding: 5px;
+            position: absolute;
+            top: 3%;
+            right: 1%;
+
+        }
+
+        #searchButton {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        #searchButton img {
+            width: 30px;
+            height: 30px;
+        }
+
+
+        #contact button{
+            background-color: #361A1A;
+            color: #EAE3CF;
+            width: fit-content;
+            padding: 10px;
+            border-radius: 5px;
+
+        }
+        #contactsection {position: relative;}
+        .objectva{
+            position: absolute;
+            left: -5%;
+            bottom: 66%;
+            opacity: 70%;
+        }
+
+        .richa1 , .richa2 , .richa3{
+            position: absolute;
+            width: 200px;
+            height: 100px;
+        }
+        .richa1 img , .richa2 img, .richa3 img{
+            width: inherit;
+            height: inherit;
+
+        }
+        .richa1{
+            bottom: 10%;
+            left: 54%;
+        }
+        .richa2{
+            bottom: 10%;
+            right: 54%;
+        }
+        .richa3{
+            top: 30%;
+            left: 43%;
+        }
+
+
+
+
+</style>
+<body>
+    <header>
+        <div class="logonav">
+            <div id="searchContainer">
+                <div id="searchContent">
+                    <h2>Search</h2>
+                    <!-- Your search form or content goes here -->
+                    <form>
+                        <label for="searchInput">Search:</label>
+                        <input type="text" id="searchInput" name="searchInput">
+                        <button type="button" class="search">search</button>
+                    </form>
+                    <button onclick="closeSearch() " class="close" >X</button>
+                </div>
+            </div>
+            <div id="searchButton" onclick="openSearch() ">
+                <div class="search"><img id="searchs" src="search.png" alt="search"></div>
+            </div>
+        
+            <div class="logo"><img src="logo.png"></div>
+  
+            <div class="fav">
+                <div class="heartw"><img src="heartw.png" alt="heartw"></div>
+                <div class="account"><img src="Account.png" alt="account"></div>
+                <div class="panier"><img src="Shopping.png" alt="panier"></div>
+            </div>
+
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a>Home</a>
+                </li>
+                <li>
+                    <a href="#">Women</a>
+                    <div class="category-div">
+                        <!-- Content for Women category -->
+                        <a href="#">Dresses</a>
+                        <a href="#">pants</a>
+                        <a href="#">skirt</a>
+                        <a href="#">shirts</a>
+                        <a href="#">jackets</a>
+                        <a href="#">Accessories</a>
+                        <a href="#">Shoes</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Men</a>
+                    <div class="category-div">
+                        <!-- Content for Men category -->
+                        <a href="#">Men's Clothes</a>
+                        <a href="#">Accessories</a>
+                        <a href="#">Shoes</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Kids</a>
+                    <div class="category-div">
+                        <!-- Content for Kids category -->
+                        <a href="#">Kids' Clothes</a>
+                        <a href="#">Shoes</a>
+                        <a href="#">Toys</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">House</a>
+                    <div class="category-div">
+                        <!-- Content for House category -->
+                        <a href="#">Home Decor</a>
+                        <a href="#">Kitchenware</a>
+                        <a href="#">Furniture</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Beauty</a>
+                    <div class="category-div">
+                        <!-- Content for Beauty category -->
+                        <a href="#">Skincare</a>
+                        <a href="#">Makeup</a>
+                        <a href="#">Haircare</a>
+                    </div>
+                </li>
+                <li>
+                    <a>About Us</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="mode">
+        
+                  <div class="slide-content">
+                      <div class="text-overlay">
+                          <h3>MODE</h3>
+                          <h3>&</h3>
+                          <h3>MORE</h3>
+                      </div>
+                      <img class="imagy fade" id="myImage1" src="mode.png" style="width:100%" >
+                      <img class="imagy fade" id="myImage2" src="man.png" style="width:100%" >
+                      <img class="imagy fade" id="myImage3" src="watchh.png" style="width:100%" >
+                      <img class="imagy fade" id="myImage3" src="accessories.png" style="width:100%" >
+        
+        
+                      <div class="contact-button">
+                          <button ><a onclick="scrollToSection('contactsection')">Contact Us</a> </button>
+                      </div>
+                  </div>
+        
+            </div>
+        
+            <div class="dots" style="text-align:center">
+                <span class="dot"></span> 
+                <span class="dot"></span> 
+                <span class="dot"></span> 
+                <span class="dot"></span> 
+
+            </div>
+
+
+
+
+   
+    </header>
+    <content class="content">
+        <div class="newest">
+            <h1>NEWEST</h1>
+            <div class="cards">
+                <div class="card" >
+                    <div class="heart">
+                        <img class="heart-img" src="Heart.png" alt="heart" onclick="changeHeart(this)">
+                    </div>
+                    <div class="picnom">
+                        <img name="imgAr" src="ordinory.png" alt="ordinory">
+                        <p class="nomAr" name="nomAr">Chemisier satin longue</p>
+                        <div class="pris">
+                           <p class="prix">3200</p><p class="prix-unit">DA</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card" >
+                    <div class="heart">
+                        <img class="heart-img" src="Heart.png" alt="heart" onclick="changeHeart(this)">
+                    </div>
+                    <div class="picnom">
+                        <img name="imgAr" src="ordinory.png" alt="ordinory">
+                        <p class="nomAr" name="nomAr">Chemisier satin longue</p>
+                        <div class="pris">
+                            <p class="prix">3200</p><p class="prix-unit">DA</p>
+                         </div>                        
+                    </div>
+
+                </div>
+                <div class="card" >
+                    <div class="heart">
+                        <img class="heart-img" src="Heart.png" alt="heart" onclick="changeHeart(this)">
+                    </div>
+                    <div class="picnom">
+                        <img name="imgAr" src="ordinory.png" alt="ordinory">
+                        <p class="nomAr" name="nomAr">Chemisier satin longue</p>
+                        <div class="pris">
+                            <p class="prix">3200</p><p class="prix-unit">DA</p>
+                        </div>       
+                    </div>
+
+                </div>
+                <div class="card" >
+                    <div class="heart">
+                        <img class="heart-img" src="Heart.png" alt="heart" onclick="changeHeart(this)">
+                    </div>
+                    <div class="picnom">
+                        <img name="imgAr" src="ordinory.png" alt="ordinory">
+                        <p class="nomAr" name="nomAr">Chemisier satin longue</p>
+                        <div class="pris">
+                            <p class="prix">3200</p><p class="prix-unit">DA</p>
+                        </div> 
+                    </div>
+
+                </div>
+                <div class="card" >
+                    <div class="heart">
+                        <img class="heart-img" src="Heart.png" alt="heart" onclick="changeHeart(this)">
+                    </div>
+                    <div class="picnom">
+                        <img name="imgAr" src="ordinory.png" alt="ordinory">
+                        <p class="nomAr" name="nomAr">Chemisier satin longue</p>
+                        <div class="pris">
+                            <p class="prix">3200</p><p class="prix-unit">DA</p>
+                        </div>                     </div>
+
+                </div>
+                <div class="card" >
+                    <div class="heart">
+                        <img class="heart-img" src="Heart.png" alt="heart" onclick="changeHeart(this)">
+                    </div>
+                    <div class="picnom">
+                        <img name="imgAr" src="ordinory.png" alt="ordinory">
+                        <p class="nomAr" name="nomAr">Chemisier satin longue</p>
+                            <p class="prix">3200</p><p class="prix-unit">DA</p>
+                    </div>
+
+                </div>
+                <div class="card" >
+                    <div class="heart">
+                        <img class="heart-img" src="Heart.png" alt="heart" onclick="changeHeart(this)">
+                    </div>
+                    <div class="picnom">
+                        <img name="imgAr" src="ordinory.png" alt="ordinory">
+                        <p class="nomAr" name="nomAr">Chemisier satin longue</p>
+                            <p class="prix">3200</p><p class="prix-unit">DA</p>
+                    </div>
+
+                </div>
+                <div class="card" >
+                    <div class="heart">
+                        <img class="heart-img" src="Heart.png" alt="heart" onclick="changeHeart(this)">
+                    </div>
+                    <div class="picnom">
+                        <img name="imgAr" src="ordinory.png" alt="ordinory">
+                        <p class="nomAr" name="nomAr">Chemisier satin longue</p>
+                            <p class="prix">3200</p><p class="prix-unit">DA</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="makeup">
+            <div class="newest">
+                <h1>Makeup</h1>
+                <div class="cards">
+                    <div class="card" >
+                        <div class="heart">
+                            <img class="heart-img" src="Heart.png" alt="heart" onclick="changeHeart(this)">
+                        </div>
+                        <div class="picnom">
+                            <img name="imgAr" src="ordinory.png" alt="ordinory">
+                            <p class="nomAr" name="nomAr">Chemisier satin longue</p>
+                                <p class="prix">3200</p><p class="prix-unit">DA</p>
+                        </div>
+
+                    </div>
+                    <div class="card" >
+                        <div class="heart">
+                            <img class="heart-img" src="Heart.png" alt="heart" onclick="changeHeart(this)">
+                        </div>
+                        <div class="picnom">
+                            <img name="imgAr" src="ordinory.png" alt="ordinory">
+                            <p class="nomAr" name="nomAr">Chemisier satin longue</p>
+                                <p class="prix">3200</p><p class="prix-unit">DA</p>
+                        </div>
+
+                    </div>
+                    <div class="card" >
+                        <div class="heart">
+                            <img class="heart-img" src="Heart.png" alt="heart" onclick="changeHeart(this)">
+                        </div>
+                        <div class="picnom">
+                            <img name="imgAr" src="ordinory.png" alt="ordinory">
+                            <p class="nomAr" name="nomAr">Chemisier satin longue</p>
+                                <p class="prix">3200</p><p class="prix-unit">DA</p>
+                        </div>
+
+                    </div>
+                    <div class="card" >
+                        <div class="heart">
+                            <img class="heart-img" src="Heart.png" alt="heart" onclick="changeHeart(this)">
+                        </div>
+                        <div class="picnom">
+                            <img name="imgAr" src="ordinory.png" alt="ordinory">
+                            <p class="nomAr" name="nomAr">Chemisier satin longue</p>
+                                <p class="prix">3200</p><p class="prix-unit">DA</p>
+                        </div>
+
+                    </div>
+                    <div class="card" >
+                        <div class="heart">
+                            <img class="heart-img" src="Heart.png" alt="heart" onclick="changeHeart(this)">
+                        </div>
+                        <div class="picnom">
+                            <img name="imgAr" src="ordinory.png" alt="ordinory">
+                            <p class="nomAr" name="nomAr">Chemisier satin longue</p>
+                                <p class="prix">3200</p><p class="prix-unit">DA</p>
+                        </div>
+
+                    </div>
+                    <div class="card" >
+                        <div class="heart">
+                            <img class="heart-img" src="Heart.png" alt="heart" onclick="changeHeart(this)">
+                        </div>
+                        <div class="picnom">
+                            <img name="imgAr" src="ordinory.png" alt="ordinory">
+                            <p class="nomAr" name="nomAr">Chemisier satin longue</p>
+                                <p class="prix">3200</p><p class="prix-unit">DA</p>
+                        </div>
+
+                    </div>
+                    <div class="card" >
+                        <div class="heart">
+                            <img class="heart-img" src="Heart.png" alt="heart" onclick="changeHeart(this)">
+                        </div>
+                        <div class="picnom">
+                            <img name="imgAr" src="ordinory.png" alt="ordinory">
+                            <p class="nomAr" name="nomAr">Chemisier satin longue</p>
+                                <p class="prix">3200</p><p class="prix-unit">DA</p>
+                        </div>
+
+                    </div>
+                    <div class="card" >
+                        <div class="heart">
+                            <img class="heart-img" src="Heart.png" alt="heart" onclick="changeHeart(this)">
+                        </div>
+                        <div class="picnom">
+                            <img name="imgAr" src="ordinory.png" alt="ordinory">
+                            <p class="nomAr" name="nomAr">Chemisier satin longue</p>
+                                <p class="prix">3200</p><p class="prix-unit">DA</p>
+                        </div>
+
+                    </div>
+                </div>
+                <button type="button" name="voir" ><a href="#">Voir  Plus</a></button>
+
+            </div>    
+            <div class="objects">
+                <img src="lines.png" alt="objects">
+            </div>        
+        </div>
+
+        
+        <div class="here">
+            <h1>for you</h1>
+            <div class="requests">
+                <div>
+                    <button class="prevy">&larr;</button>
+                </div>
+
+                <div class="request">
+                    <div class="profil">
+                        <img src="skin.png" alt="profil">
+                    </div> 
+                    <div class="ray">
+                        <p>Les Acides Bêta-Hydroxylés (BHA) exfolient également la peau et décongestionnent les pores.
+                             Cette solution concentrée à 32% offre à la peau une exfoliation en
+                             profondeur pour atténuer l'apparence des imperfections et booster l'éclat de la peau. </p>
+                    </div>
+                </div>
+                <div class="request">
+                    <div class="profil">
+                        <img src="skin.png" alt="profil">
+                    </div> 
+                    <div class="ray">
+                        <p>Les Acides Bêta-Hydroxylés (BHA) exfolient également la peau et décongestionnent les pores.
+                             Cette solution concentrée à 32% offre à la peau une exfoliation en
+                             profondeur pour atténuer l'apparence des imperfections et booster l'éclat de la peau. </p>
+                    </div>
+                </div>
+                <div class="request">
+                    <div class="profil">
+                        <img src="skin.png" alt="profil">
+                    </div> 
+                    <div class="ray">
+                        <p>Les Acides Bêta-Hydroxylés (BHA) exfolient également la peau et décongestionnent les pores.
+                             Cette solution concentrée à 32% offre à la peau une exfoliation en
+                             profondeur pour atténuer l'apparence des imperfections et booster l'éclat de la peau. </p>
+                    </div>
+                </div>
+                <div class="request">
+ 
+                    <div class="profil">
+                        <img src="skin.png" alt="profil">
+                    </div>
+
+                    <div class="ray">
+                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots
+                            in a piece of classical Latin literature from 45 BC.</p>
+                    </div>
+                </div>
+                <div class="request">
+
+                    <div class="profil">
+                        <img src="skin.png" alt="profil">
+                    </div>
+
+                    <div class="ray">
+                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots
+                            in a piece of classical Latin literature from 45 BC.</p>
+                    </div>
+                </div> 
+                  
+
+                <div>
+                    <button class="nexty">&rarr;</button>
+                    
+
+                </div>
+                
+            </div>
+            <div class="indicators">
+                <!-- Indicator balls will be added here dynamically -->
+            </div>
+            
+        </div>
+        <div class="contact" id="contactsection">
+            <h1>contact Us</h1>
+            <form id="contact">
+
+                <input type="email" id="email" name="email" required placeholder="Enter you email">
+
+                <textarea id="message" name="message" rows="1" required placeholder="Enter your message here..."></textarea>
+        
+                <button type="submit">Send</button>
+                <div class="richa2">
+                    <img src="richa1.png" alt="">
+                </div>
+                <div class="richa1">
+                    <img src="richa2.png" alt="">
+                </div>
+                <div class="richa3">
+                    <img src="klb.png" alt="">
+                </div>
+            </form>
+            <div class="objectva">
+                <img src="vase.png" alt="object">
+            </div>
+        </div>
+        <div class="why">
+            <h1 class="whyTitle">WHY YOU SHOULD</h1>
+            <h1 class="whyTitle-2"> CHOOSE US?</h1>
+            <div class="whyCards">
+                <div class="why1">
+                    <div class="imgPr">
+                        <img src="productpeo.png" alt="product">
+                    </div>
+                    <p>Discover curated items at TrendyHUB, where style meets functionality.
+                         From fashion to gadgets, we offer a diverse range of high-quality products tailored to your tastes</p>
+                    
+                </div>
+                <div class="why1">
+                    <div class="imgPr">
+                        <img src="clothing.png" alt="product">
+                    </div>
+                    <p>Elevate your style with TrendyHUB. Our clothing line blends fashion and comfort seamlessly, 
+                        crafted from premium materials for enduring quality</p>
+                    
+                </div>
+                <div class="why1">
+                    <div class="imgPr">
+                        <img src="SHPPP.png" alt="product">
+                    </div>
+                    <p>At TrendyHUB, we prioritize your satisfaction. Enjoy swift deliveries,
+                         transparent tracking, and responsive customer service for a seamless shopping experience</p>
+                    
+                </div>
+            </div>
+            <div class="object">
+                <img src="co.png" alt="object">
+            </div>
+        </div>
+
+    </content>
+    <footer>
+        <div class="logofoot">
+            <img src="logo.png" alt="logo">
+        </div>
+        <div class="infofoot">
+
+            <div class="service">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li>Delivry</li>
+                    <li>Reclamation</li>
+                </ul>
+            </div>
+
+            <div class="service">
+                <h3>Help</h3>
+                <ul>
+                    <li>About Us</li>
+                    <li>FAQ</li>
+                    <li>Privacy Policy</li>
+                </ul>
+            </div>
+            <div class="service">
+                <h3>Find us on</h3>
+                <ul>
+                    <li>Delivry</li>
+                    <li>Reclamation</li>
+                </ul>
+            </div>
+            <div class="service">
+                <h3>Call us on</h3>
+                <ul>
+                    <li>+21312546316</li>
+                    <li>+21312546316</li>
+                    <li>+21312546316</li>
+                </ul>
+            </div>
+        </div>
+        <p class="copy">© 2023  TrendyHUB</p>
+
+    </footer>
+
+    <script>
+  function changeHeart(heart) {
+    // Find the parent card element
+    var card = heart.closest('.card');
+
+    // Find the heart element within the card
+    var heartElement = card.querySelector('.heart-img');
+      
+          // Check the current source of the heart image and change it accordingly
+          if (heartElement.src.endsWith("Heart.png")) {
+            heartElement.src = "HeartF.png";
+
+          } else {
+            heartElement.src = "Heart.png";
+          }
+        }
+      </script>
+
+<script>
+    
+const request = document.querySelectorAll('.request');
+const prevyButton = document.querySelector('.prevy');
+const nextyButton = document.querySelector('.nexty');
+const indicatorsContainer = document.querySelector('.indicators');
+
+let currentindex = 0;
+
+function showrequest(index) {
+  request.forEach((card, i) => {
+    if (i === index) {
+      card.style.display = 'flex';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+    // Update active indicator
+    const indicators = document.querySelectorAll('.indicator');
+  indicators.forEach((indicator, i) => {
+    if (i === index) {
+      indicator.classList.add('active');
+    } else {
+      indicator.classList.remove('active');
+    }
+  });
+
+
+
+  prevyButton.disabled = currentindex === 0;
+  nextyButton.disabled = currentindex === request.length - 1;
+
+}
+
+function prevyCard() {
+  currentindex = (currentindex - 1 + request.length) % request.length;
+  showrequest(currentindex);
+}
+
+
+
+function nextyCard() {
+  currentindex = (currentindex + 1) % request.length;
+  showrequest(currentindex);
+}
+
+
+// Create indicators dynamically
+for (let i = 0; i < request.length; i++) {
+  const indicator = document.createElement('div');
+  indicator.className = 'indicator';
+  indicator.addEventListener('click', () => showCard(i));
+  indicatorsContainer.appendChild(indicator);
+}
+
+prevyButton.addEventListener('click', prevyCard);
+nextyButton.addEventListener('click', nextyCard);
+
+// Show the initial card
+showrequest(currentindex);
+</script>
+
+
+<script>
+    let slideIndex = 0;
+    showSlides();
+    
+    function showSlides() {
+      let i;
+      let slides = document.getElementsByClassName("imagy");
+      let dots = document.getElementsByClassName("dot");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}    
+      for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";  
+    dots[slideIndex - 1].className += " active";
+      setTimeout(showSlides, 3000); // Change image every 2 seconds
+    }
+    </script>
+
+
+<script>
+    function scrollToSection(sectionId) {
+        var section = document.getElementById(sectionId);
+        if (section) {
+            // Scroll to the top of the target section smoothly
+            window.scrollTo({
+                top: section.offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    }
+</script>
+
+<script>
+    function openSearch() {
+        document.getElementById("searchContainer").style.width = "100%";
+        document.getElementById("searchContent").style.width = "30%";
+    }
+
+    function closeSearch() {
+        document.getElementById("searchContainer").style.width = "0";
+        document.getElementById("searchContent").style.width = "0";
+    }
+</script>
+
+
+</body>
+</html>
